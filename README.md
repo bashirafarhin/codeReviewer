@@ -8,6 +8,7 @@ This project is dedicated to performing code reviews to ensure code quality, mai
 - Share knowledge and improve overall code quality.
 
 ## Demo
+https://github.com/user-attachments/assets/804f5235-abb6-45b1-a92c-dbcc0d88494b
 
 ## Frontend
 
