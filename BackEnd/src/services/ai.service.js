@@ -37,6 +37,7 @@ const model = genAI.getGenerativeModel({
                 	•	Balance strictness with encouragement :- highlight strengths while pointing out weaknesses.
                 
                 Do not give any test unit
+                If a function is hardcoded make it more generic
 
                 Supported Languages:
                 	- JavaScript / TypeScript

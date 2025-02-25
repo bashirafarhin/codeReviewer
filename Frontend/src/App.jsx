@@ -23,29 +23,35 @@ function App() {
 
   const fixCode = () => {
     setCode(fixedCode);
-  }
+  };
 
   async function reviewCode() {
     setLoading(true);
     try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_API}/ai/get-review`, { code });
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_API}/ai/get-review`,
+        { code }
+      );
       const reviewText = response.data;
-      setReview(reviewText);  
+      setReview(reviewText);
       setLoading(false);
-    const matches = reviewText.match(/```([\w+#-]*)\s*([\s\S]*?)\s*```/gi);
-        if (matches && matches.length > 1) {
-            const lastMatch = matches[matches.length - 1];
-            const extractedCode = lastMatch.replace(/```[\w+#-]*|```/g, "").trim();
-            setFixedCode(extractedCode);
-        }
+      const matches = reviewText.match(/```([\w+#-]*)\s*([\s\S]*?)\s*```/gi);
+      if (matches && matches.length > 1) {
+        const lastMatch = matches[matches.length - 1];
+        const extractedCode = lastMatch.replace(/```[\w+#-]*|```/g, "").trim();
+        setFixedCode(extractedCode);
+      }
     } catch (error) {
       console.error("Error fetching review:", error);
     }
-  }  
+  }
 
   return (
     <>
-    { loading && <Loader/> }
+      {loading && <Loader />}
+      <div class="how-to-use">
+      Write or Paste any code to debug or improve it with AI-powered suggestions for optimization, error fixing, and best practices.
+      </div>
       <main>
         <div className="left">
           <div className="code">
@@ -67,12 +73,12 @@ function App() {
             />
           </div>
           <div className="buttons">
-          <div onClick={reviewCode} className="button review">
-            Review
-          </div>
-          <div onClick={fixCode} className="button fix">
-            Fix
-          </div>
+            <div onClick={reviewCode} className="button review">
+              Review
+            </div>
+            <div onClick={fixCode} className="button fix">
+              Fix
+            </div>
           </div>
         </div>
         <div className="right">
