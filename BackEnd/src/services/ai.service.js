@@ -37,8 +37,6 @@ const model = genAI.getGenerativeModel({
                 	•	Balance strictness with encouragement :- highlight strengths while pointing out weaknesses.
                 
                 Do not give any test unit
-                When the code is correct, write good but can be improved
-                When the code is hardcoded, write that the code is hardcoded and suggest a better way to do it
 
                 Supported Languages:
                 	- JavaScript / TypeScript
